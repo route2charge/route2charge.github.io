@@ -212,3 +212,15 @@ figcaption { text-align: center; color: var(--muted); margin-top: 18px; font-siz
 /* 404 */
 .notfound { padding: 120px 0; text-align: center; }
 .notfound h1 { font-size: clamp(40px, 6vw, 64px); }
+
+/* Hilfe-Seite */
+.contact-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 26px; margin: 28px 0 8px; }
+.contact-card h2 { margin-top: 0; }
+.contact-card .mail { font-size: 20px; font-weight: 700; }
+.contact-card .btn { margin-top: 6px; }
+.faq { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 0 20px; margin: 12px 0; }
+.faq summary { cursor: pointer; padding: 16px 0; font-weight: 650; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--accent); font-weight: 800; font-size: 20px; line-height: 1; }
+.faq[open] summary::after { content: "–"; }
+.faq p { margin: 0 0 16px; color: #c7d3dd; }

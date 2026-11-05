@@ -96,8 +96,10 @@ TEXT = {
         "prefix": "",
         "home": "index.html",
         "privacy_file": "privacy.html",
+        "help_file": "help.html",
         "other_home": "de/index.html",
         "other_privacy": "de/datenschutz.html",
+        "other_help": "de/hilfe.html",
         "other_label": "DE",
         "other_name": "Deutsch",
         "title": "Route2Charge – your 2 best charging stops",
@@ -105,6 +107,21 @@ TEXT = {
         "nav_how": "How it works",
         "nav_app": "The app",
         "nav_privacy": "Privacy",
+        "nav_help": "Help",
+        "help_title": "Help &amp; feedback",
+        "help_lead": "Found a bug, have a question or an idea? We’d love to hear from you – no form, no account, no tracking. Just an e-mail.",
+        "contact_h": "Write to us",
+        "contact_text": "Please tell us your start, destination and remaining range if a result looks wrong – that helps us reproduce it.",
+        "contact_btn": "Send an e-mail",
+        "faq_h": "Frequently asked questions",
+        "faq": [
+            ("Where does the charging station data come from?", "From Open Charge Map, a free community database, and its data providers. If a charger is missing, closed or shows the wrong power, you can correct it directly at <a href=\"https://openchargemap.org\">openchargemap.org</a> – or simply tell us."),
+            ("Why does the app show prices?", "It doesn’t yet. There is no free, open database for charging prices. We’re working on it."),
+            ("Why does Apple Maps only navigate to the charger?", "Apple Maps accepts only one destination from other apps. After charging, tap “Continue to destination” or “Find next charging stop from here” in Route2Charge."),
+            ("Does the app need my location?", "Only if you start from where you are, and to notice when you’ve arrived at the charger. You can also enter any starting point. Your location is never stored."),
+            ("Which cars does it work with?", "Any electric car with a CCS fast-charging plug – that’s almost every EV in Europe. For battery percentage mode, enter your battery size and average consumption in the settings."),
+            ("Can I hide Tesla Superchargers?", "Yes – in the settings, switch on “Hide Tesla Superchargers”."),
+        ],
         "skip": "Skip to content",
         "eyebrow": "No account · No tracking · No ads",
         "h1": '150&nbsp;km left? <span class="glow">Your 2 best charging stops.</span>',
@@ -156,6 +173,7 @@ TEXT = {
         "more": "Read the privacy policy →",
         "footer_note": "Route2Charge is an independent project.",
         "contact": "Contact",
+        "help": "Help",
         "privacy": "Privacy policy",
         "credits": "Charging station data © Open Charge Map contributors and data providers, licensed under CC BY 4.0. Maps and routing: Apple Maps. Apple, iPhone and App Store are trademarks of Apple Inc. All information without guarantee – availability, power and prices of charging stations may differ.",
         "back": "← Back to Route2Charge",
@@ -167,8 +185,10 @@ TEXT = {
         "prefix": "../",
         "home": "index.html",
         "privacy_file": "datenschutz.html",
+        "help_file": "hilfe.html",
         "other_home": "../index.html",
         "other_privacy": "../privacy.html",
+        "other_help": "../help.html",
         "other_label": "EN",
         "other_name": "English",
         "title": "Route2Charge – deine 2 besten Ladestopps",
@@ -176,6 +196,21 @@ TEXT = {
         "nav_how": "So funktioniert’s",
         "nav_app": "Die App",
         "nav_privacy": "Datenschutz",
+        "nav_help": "Hilfe",
+        "help_title": "Hilfe &amp; Feedback",
+        "help_lead": "Fehler entdeckt, eine Frage oder eine Idee? Schreib uns gern – ohne Formular, ohne Account, ohne Tracking. Einfach per E-Mail.",
+        "contact_h": "Schreib uns",
+        "contact_text": "Wenn ein Ergebnis komisch aussieht: Schick uns Start, Ziel und Reichweite mit – dann können wir es nachstellen.",
+        "contact_btn": "E-Mail schreiben",
+        "faq_h": "Häufige Fragen",
+        "faq": [
+            ("Woher kommen die Ladesäulen-Daten?", "Von Open Charge Map, einer freien Community-Datenbank, und deren Datenlieferanten. Fehlt eine Säule, ist sie geschlossen oder stimmt die Leistung nicht, kannst du das direkt auf <a href=\"https://openchargemap.org\">openchargemap.org</a> korrigieren – oder uns einfach Bescheid geben."),
+            ("Zeigt die App Preise an?", "Noch nicht. Für Ladepreise gibt es keine freie, offene Datenbank. Wir arbeiten daran."),
+            ("Warum navigiert Apple Karten nur bis zur Säule?", "Apple Karten übernimmt von anderen Apps nur ein Ziel. Nach dem Laden tippst du in Route2Charge auf „Weiter zum Ziel navigieren“ oder „Nächsten Ladestopp ab hier suchen“."),
+            ("Braucht die App meinen Standort?", "Nur wenn du an deinem Standort startest und damit die App merkt, dass du an der Ladesäule angekommen bist. Du kannst auch jeden anderen Startpunkt eingeben. Der Standort wird nie gespeichert."),
+            ("Mit welchen Autos funktioniert die App?", "Mit jedem E-Auto mit CCS-Schnellladestecker – also fast allen in Europa. Für den Modus „Akku %“ trägst du in den Einstellungen Akkugröße und Durchschnittsverbrauch ein."),
+            ("Kann ich Tesla Supercharger ausblenden?", "Ja – in den Einstellungen „Tesla Supercharger ausblenden“ einschalten."),
+        ],
         "skip": "Zum Inhalt springen",
         "eyebrow": "Ohne Account · Ohne Tracking · Ohne Werbung",
         "h1": 'Noch 150&nbsp;km? <span class="glow">Deine 2 besten Ladestopps.</span>',
@@ -227,6 +262,7 @@ TEXT = {
         "more": "Zur Datenschutzerklärung →",
         "footer_note": "Route2Charge ist ein unabhängiges Projekt.",
         "contact": "Kontakt",
+        "help": "Hilfe",
         "privacy": "Datenschutzerklärung",
         "credits": "Ladesäulen-Daten © Open Charge Map und Datenlieferanten, Lizenz CC BY 4.0. Karten und Routen: Apple Karten. Apple, iPhone und App Store sind Marken der Apple Inc. Alle Angaben ohne Gewähr – Verfügbarkeit, Leistung und Preise der Ladesäulen können abweichen.",
         "back": "← Zurück zu Route2Charge",
@@ -275,6 +311,7 @@ def header(t, lang_target, show_nav=True):
         nav = f"""<a class="hide-sm" href="#how">{t['nav_how']}</a>
       <a class="hide-sm" href="#app">{t['nav_app']}</a>
       <a class="hide-sm" href="#privacy">{t['nav_privacy']}</a>
+      <a href="{t['help_file']}">{t['nav_help']}</a>
       """
     home = t["home"]
     return f"""<header class="site-header">
@@ -297,6 +334,7 @@ def footer(t):
     <div class="footer-top">
       <span>© 2026 {OWNER} · {t['footer_note']}</span>
       <nav class="footer-links" aria-label="Footer">
+        <a href="{t['help_file']}">{t['help']}</a>
         <a href="{t['privacy_file']}">{t['privacy']}</a>
         <a href="mailto:{EMAIL}">{t['contact']}</a>
         <a href="{t['other_home']}" hreflang="{'de' if t['lang']=='en' else 'en'}">{t['other_name']}</a>
@@ -487,6 +525,33 @@ def legal(t, title, body, canonical, alt_en, alt_de):
     return html
 
 
+def help_page(t, canonical, alt_en, alt_de):
+    subject = "Route2Charge%20Feedback"
+    faq = "\n".join(
+        f"""<details class="faq"><summary>{q}</summary><p>{a}</p></details>""" for q, a in t["faq"]
+    )
+    html = head(t, f"{t['nav_help']} – Route2Charge", t["description"], canonical, alt_en, alt_de)
+    html += header(t, t["other_help"], show_nav=False)
+    html += f"""<main id="main" class="legal">
+  <div class="wrap">
+    <a href="{t['home']}">{t['back']}</a>
+    <h1>{t['help_title']}</h1>
+    <p class="lead">{t['help_lead']}</p>
+    <div class="contact-card">
+      <h2>{t['contact_h']}</h2>
+      <p><a class="mail" href="mailto:{EMAIL}?subject={subject}">{EMAIL}</a></p>
+      <p class="meta">{t['contact_text']}</p>
+      <p><a class="btn btn-primary" href="mailto:{EMAIL}?subject={subject}">{t['contact_btn']}</a></p>
+    </div>
+    <h2>{t['faq_h']}</h2>
+{faq}
+  </div>
+</main>
+"""
+    html += footer(t)
+    return html
+
+
 def not_found():
     t = TEXT["en"]
     html = head(t, "404 – Route2Charge", t["description"], "404.html", "", "de/")
@@ -516,4 +581,6 @@ if __name__ == "__main__":
     write("de/index.html", landing(TEXT["de"]))
     write("privacy.html", legal(TEXT["en"], "Privacy policy", PRIVACY_EN, "privacy.html", "privacy.html", "de/datenschutz.html"))
     write("de/datenschutz.html", legal(TEXT["de"], "Datenschutzerklärung", PRIVACY_DE, "de/datenschutz.html", "privacy.html", "de/datenschutz.html"))
+    write("help.html", help_page(TEXT["en"], "help.html", "help.html", "de/hilfe.html"))
+    write("de/hilfe.html", help_page(TEXT["de"], "de/hilfe.html", "help.html", "de/hilfe.html"))
     write("404.html", not_found())
