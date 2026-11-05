@@ -12,6 +12,8 @@ from pathlib import Path
 SITE_URL = "https://route2charge.github.io"
 OWNER = "Clemens Schweder"
 EMAIL = "route2charge@proton.me"
+# Postanschrift für das Impressum (mehrzeilig mit \n). Leer = kein Impressum.
+ADDRESS = ""
 UPDATED_EN = "November 2026"
 UPDATED_DE = "November 2026"
 # ---------------------------------------------------------------------------
@@ -36,6 +38,30 @@ ICON_BATTERY = ('<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="7"
 ICON_CLOCK = ('<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" '
               'stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" '
               'stroke-linecap="round" d="M12 7v5l3 2"/></svg>')
+
+ICON_PLUG = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" '
+             'stroke-linecap="round" stroke-linejoin="round" d="M9 3v4m6-4v4M6.5 7h11v3.5a5.5 5.5 0 0 1-11 0zM12 16v5"/></svg>')
+ICON_HIDE = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" '
+             'stroke-linecap="round" stroke-linejoin="round" d="M3 12s3.5-6.5 9-6.5S21 12 21 12s-3.5 6.5-9 6.5S3 12 3 12z'
+             'M12 9.2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6M4 20 20 4"/></svg>')
+ICON_DETOUR = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" '
+               'stroke-linecap="round" d="M5 19V9a4 4 0 0 1 8 0v6a4 4 0 0 0 6 0V5"/><circle cx="5" cy="19" r="2" '
+               'fill="currentColor"/><circle cx="19" cy="5" r="2" fill="currentColor"/></svg>')
+ICON_SHIELD = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" '
+               'stroke-linejoin="round" d="M12 3 5 6v5.5c0 4.4 3 8 7 9.5 4-1.5 7-5.1 7-9.5V6z"/><path fill="none" '
+               'stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M9 12h6"/></svg>')
+ICON_FLAG = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" '
+             'stroke-linecap="round" stroke-linejoin="round" d="M5 21V4m0 0h11l-2 4 2 4H5"/></svg>')
+ICON_NEXT = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" '
+             'stroke-linecap="round" stroke-linejoin="round" d="M4 12h13m-5-6 6 6-6 6"/><path fill="currentColor" '
+             'd="M20 5h2v14h-2z"/></svg>')
+ICON_LOCK = ('<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5" '
+             'fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" '
+             'd="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg>')
+ICON_GEAR = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" '
+             'stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2.4" fill="#06090d" '
+             'stroke="currentColor" stroke-width="2"/><circle cx="15.5" cy="12" r="2.4" fill="#06090d" stroke="currentColor" '
+             'stroke-width="2"/><circle cx="7" cy="18" r="2.4" fill="#06090d" stroke="currentColor" stroke-width="2"/></svg>')
 
 ROUTE_PATH = "M40 160 C150 160 150 80 260 80 C370 80 370 160 480 160 C590 160 590 80 700 80 C810 80 810 160 920 160"
 
@@ -121,6 +147,8 @@ TEXT = {
             ("Does the app need my location?", "Only if you start from where you are, and to notice when you’ve arrived at the charger. You can also enter any starting point. Your location is never stored."),
             ("Which cars does it work with?", "Any electric car with a CCS fast-charging plug – that’s almost every EV in Europe. For battery percentage mode, enter your battery size and average consumption in the settings."),
             ("Can I hide Tesla Superchargers?", "Yes – in the settings, switch on “Hide Tesla Superchargers”."),
+            ("Can I also see regular 11 or 22 kW chargers?", "Yes. In the settings, set the minimum power to 11 or 22&nbsp;kW and switch off “CCS plug only”. These Type&nbsp;2 chargers are marked in the results – they charge much more slowly than fast chargers."),
+            ("Is the app available in English?", "Yes. Route2Charge follows your iPhone’s language: German or English."),
         ],
         "skip": "Skip to content",
         "eyebrow": "No account · No tracking · No ads",
@@ -129,6 +157,7 @@ TEXT = {
         "cta": "See how it works",
         "soon": "Coming soon to the App Store",
         "facts": ["Germany &amp; Europe", "CCS fast chargers", "Built for iPhone"],
+        "hero_img": "route-en.jpg",
         "hero_alt": "Route2Charge on iPhone: a route from Karlsfeld to Stuttgart with the charging window highlighted in green and two recommended chargers.",
         "how_kicker": "How it works",
         "how_h2": "Three steps. Two stops. Zero stress.",
@@ -157,9 +186,37 @@ TEXT = {
         "app_h2": "Clear, calm, made for the road.",
         "app_p": "Your route, the charging window and your best options – with power, detour and the range left on arrival. Pick a charger and see the whole trip, start to destination, right in the app.",
         "shots": [
-            ("assets/screens/route.jpg", "Route and charging window at a glance", "The map shows the route, the green charging window and both recommended chargers."),
-            ("assets/screens/stops.jpg", "Your two best stops – plus more options", "List of the two recommended chargers with power, charge points, detour and remaining range, followed by further options from other networks."),
-            ("assets/screens/trip.jpg", "The whole trip with your charging stop", "Map of the full trip from start via the charging station to the destination, with total distance, driving time and range on arrival."),
+            ("assets/screens/route-en.jpg", "Route and charging window at a glance", "The map shows the route, the green charging window and both recommended chargers."),
+            ("assets/screens/stops-en.jpg", "Your two best stops – plus more options", "List of the two recommended chargers with power, charge points, detour and remaining range, followed by further options from other networks."),
+            ("assets/screens/trip-en.jpg", "The whole trip with your charging stop", "Map of the full trip from start via the charging station to the destination, with total distance, driving time and range on arrival."),
+        ],
+        "nav_opts": "Options",
+        "opt_kicker": "Make it yours",
+        "opt_h2": "Your car. Your rules.",
+        "opt_p": "Enter your range the way your car shows it – and set once what a good charger means to you.",
+        "range_h": "Range – the way your car shows it",
+        "modes": [
+            ("km", "Range", "150&nbsp;km", "Type in the remaining range from your dashboard – anywhere from 10 to 600&nbsp;km."),
+            ("pct", "Battery %", "35&nbsp;%", "Enter your battery level. With your battery size and consumption, Route2Charge works out the range."),
+            ("at", "At km", "km&nbsp;150", "You know where you want to stop? Pick the kilometre on your route and get the best chargers up to 20&nbsp;km before or after it."),
+        ],
+        "extras": [
+            ("shield", "Safety buffer", "Keep 0–100&nbsp;km in reserve – 20&nbsp;km by default. Your stops always come before it."),
+            ("flag", "No stop needed?", "Then the app tells you – including the range left when you arrive."),
+            ("next", "After charging", "Continue to your destination or search for the next stop from the charger – with your new range in km or %."),
+        ],
+        "set_h": "Settings – set once, done",
+        "settings": [
+            ("bolt", "Minimum power", "11, 22, 50, 100 or 150&nbsp;kW – only chargers at least this fast make the cut. 50&nbsp;kW by default."),
+            ("plug", "CCS only", "The fast-charging plug of almost every EV in Europe. Switch it off to also see regular Type&nbsp;2 chargers with 11 or 22&nbsp;kW."),
+            ("hide", "Hide Tesla Superchargers", "Often pricier for other cars or only usable with the Tesla app – one switch and they’re gone."),
+            ("detour", "Max. distance from the route", "0.5 to 10&nbsp;km. Stay right on the motorway or allow a short hop for a better charger."),
+            ("battery", "Battery &amp; consumption", "Usable capacity and average consumption – used for battery % mode."),
+        ],
+        "set_note": "All settings are stored on your iPhone only.",
+        "opt_shots": [
+            ("input-en.jpg", "Route2Charge on iPhone: route from Karlsfeld to Stuttgart, range options Range, Battery % and At km, remaining range 150 km and a 20 km safety buffer."),
+            ("settings-en.jpg", "Route2Charge settings: minimum power, CCS only, hide Tesla Superchargers, maximum distance from the route, battery size and consumption."),
         ],
         "priv_kicker": "Privacy",
         "claim": ["No account.", "No tracking.", "No server."],
@@ -210,6 +267,8 @@ TEXT = {
             ("Braucht die App meinen Standort?", "Nur wenn du an deinem Standort startest und damit die App merkt, dass du an der Ladesäule angekommen bist. Du kannst auch jeden anderen Startpunkt eingeben. Der Standort wird nie gespeichert."),
             ("Mit welchen Autos funktioniert die App?", "Mit jedem E-Auto mit CCS-Schnellladestecker – also fast allen in Europa. Für den Modus „Akku %“ trägst du in den Einstellungen Akkugröße und Durchschnittsverbrauch ein."),
             ("Kann ich Tesla Supercharger ausblenden?", "Ja – in den Einstellungen „Tesla Supercharger ausblenden“ einschalten."),
+            ("Kann ich auch normale 11- oder 22-kW-Lader sehen?", "Ja. In den Einstellungen die Mindestleistung auf 11 oder 22&nbsp;kW stellen und „Nur CCS-Stecker“ ausschalten. Diese Typ-2-Lader sind in den Ergebnissen markiert – sie laden deutlich langsamer als Schnelllader."),
+            ("Gibt es die App auch auf Englisch?", "Ja. Route2Charge richtet sich nach der Sprache deines iPhones: Deutsch oder Englisch."),
         ],
         "skip": "Zum Inhalt springen",
         "eyebrow": "Ohne Account · Ohne Tracking · Ohne Werbung",
@@ -218,6 +277,7 @@ TEXT = {
         "cta": "So funktioniert’s",
         "soon": "Bald im App Store",
         "facts": ["Deutschland &amp; Europa", "CCS-Schnelllader", "Für iPhone"],
+        "hero_img": "route.jpg",
         "hero_alt": "Route2Charge auf dem iPhone: Route von Karlsfeld nach Stuttgart mit grün markiertem Ladefenster und zwei empfohlenen Ladesäulen.",
         "how_kicker": "So funktioniert’s",
         "how_h2": "Drei Schritte. Zwei Stopps. Null Stress.",
@@ -249,6 +309,34 @@ TEXT = {
             ("../assets/screens/route.jpg", "Route und Ladefenster auf einen Blick", "Die Karte zeigt die Route, das grüne Ladefenster und beide empfohlenen Ladesäulen."),
             ("../assets/screens/stops.jpg", "Die zwei besten Stopps – plus weitere Optionen", "Liste der zwei empfohlenen Ladesäulen mit Leistung, Ladepunkten, Umweg und Restreichweite, darunter weitere Optionen anderer Anbieter."),
             ("../assets/screens/trip.jpg", "Die ganze Fahrt mit Ladestopp", "Karte der ganzen Fahrt vom Start über die Ladesäule zum Ziel, mit Gesamtstrecke, Fahrzeit und Reichweite bei Ankunft."),
+        ],
+        "nav_opts": "Optionen",
+        "opt_kicker": "Einstellbar",
+        "opt_h2": "Dein Auto. Deine Regeln.",
+        "opt_p": "Gib die Reichweite so ein, wie dein Auto sie anzeigt – und leg einmal fest, was für dich eine gute Ladesäule ist.",
+        "range_h": "Reichweite – so, wie dein Auto sie zeigt",
+        "modes": [
+            ("km", "Reichweite", "150&nbsp;km", "Restreichweite vom Display ablesen und eintragen – von 10 bis 600&nbsp;km."),
+            ("pct", "Akku %", "35&nbsp;%", "Akkustand eingeben. Mit Akkugröße und Verbrauch rechnet Route2Charge die Reichweite aus."),
+            ("at", "Bei km", "km&nbsp;150", "Du weißt schon, wo du laden willst? Kilometer auf der Route wählen – und die besten Säulen bis 20&nbsp;km davor oder danach bekommen."),
+        ],
+        "extras": [
+            ("shield", "Sicherheitspuffer", "0 bis 100&nbsp;km Reserve – standardmäßig 20&nbsp;km. Deine Stopps liegen immer davor."),
+            ("flag", "Kein Stopp nötig?", "Dann sagt dir die App das – samt Reichweite bei Ankunft."),
+            ("next", "Nach dem Laden", "Weiter zum Ziel oder ab der Säule den nächsten Stopp suchen – mit neuer Reichweite in km oder %."),
+        ],
+        "set_h": "Einstellungen – einmal setzen, fertig",
+        "settings": [
+            ("bolt", "Mindestleistung", "11, 22, 50, 100 oder 150&nbsp;kW – nur so schnelle Säulen kommen in Frage. Standard: 50&nbsp;kW."),
+            ("plug", "Nur CCS-Stecker", "Der Schnellladestecker fast aller E-Autos in Europa. Ausschalten, um auch normale Typ-2-Lader mit 11 oder 22&nbsp;kW zu sehen."),
+            ("hide", "Tesla Supercharger ausblenden", "Für andere Autos oft teurer oder nur mit der Tesla-App nutzbar – ein Schalter, und sie sind weg."),
+            ("detour", "Max. Abstand zur Route", "0,5 bis 10&nbsp;km. Direkt an der Autobahn bleiben oder für eine bessere Säule kurz abfahren."),
+            ("battery", "Akku &amp; Verbrauch", "Nutzbare Kapazität und Durchschnittsverbrauch – für den Modus „Akku %“."),
+        ],
+        "set_note": "Alle Einstellungen bleiben nur auf deinem iPhone.",
+        "opt_shots": [
+            ("input.jpg", "Route2Charge auf dem iPhone: Route von Karlsfeld nach Stuttgart, Reichweiten-Modi Reichweite, Akku % und Bei km, Restreichweite 150 km und 20 km Sicherheitspuffer."),
+            ("settings.jpg", "Einstellungen von Route2Charge: Mindestleistung, nur CCS-Stecker, Tesla Supercharger ausblenden, maximaler Abstand zur Route, Akkugröße und Verbrauch."),
         ],
         "priv_kicker": "Datenschutz",
         "claim": ["Kein Account.", "Kein Tracking.", "Kein Server."],
@@ -310,6 +398,7 @@ def header(t, lang_target, show_nav=True):
     if show_nav:
         nav = f"""<a class="hide-sm" href="#how">{t['nav_how']}</a>
       <a class="hide-sm" href="#app">{t['nav_app']}</a>
+      <a class="hide-md" href="#options">{t['nav_opts']}</a>
       <a class="hide-sm" href="#privacy">{t['nav_privacy']}</a>
       <a href="{t['help_file']}">{t['nav_help']}</a>
       """
@@ -329,6 +418,10 @@ def header(t, lang_target, show_nav=True):
 
 
 def footer(t):
+    imprint = ""
+    if ADDRESS.strip():
+        imprint = f"""<a href="{IMPRINT[t['lang']]['file']}">{IMPRINT[t['lang']]['title']}</a>
+        """
     return f"""<footer class="site-footer">
   <div class="wrap">
     <div class="footer-top">
@@ -336,7 +429,8 @@ def footer(t):
       <nav class="footer-links" aria-label="Footer">
         <a href="{t['help_file']}">{t['help']}</a>
         <a href="{t['privacy_file']}">{t['privacy']}</a>
-        <a href="mailto:{EMAIL}">{t['contact']}</a>
+        <a href="{TECH[t['lang']]['file']}">{TECH[t['lang']]['title']}</a>
+        {imprint}        <a href="mailto:{EMAIL}">{t['contact']}</a>
         <a href="{t['other_home']}" hreflang="{'de' if t['lang']=='en' else 'en'}">{t['other_name']}</a>
       </nav>
     </div>
@@ -345,6 +439,60 @@ def footer(t):
 </footer>
 </body>
 </html>
+"""
+
+
+OPT_ICONS = {
+    "shield": ICON_SHIELD, "flag": ICON_FLAG, "next": ICON_NEXT, "bolt": ICON_BOLT,
+    "plug": ICON_PLUG, "hide": ICON_HIDE, "detour": ICON_DETOUR, "battery": ICON_BATTERY,
+}
+
+
+def options_section(t):
+    p = t["prefix"]
+    modes = "\n".join(
+        f"""<article class="mode mode-{key}"><span class="mode-tag">{tag}</span><div class="mode-val">{val}</div>"""
+        f"""<span class="meter" aria-hidden="true"><i></i></span><p>{d}</p></article>"""
+        for key, tag, val, d in t["modes"]
+    )
+    extras = "\n".join(
+        f"""<li>{OPT_ICONS[k]}<div><strong>{h}</strong><span>{d}</span></div></li>""" for k, h, d in t["extras"]
+    )
+    settings = "\n".join(
+        f"""<li>{OPT_ICONS[k]}<div><strong>{h}</strong><span>{d}</span></div></li>""" for k, h, d in t["settings"]
+    )
+    (in_src, in_alt), (set_src, set_alt) = t["opt_shots"]
+    return f"""<section id="options" class="options-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">{t['opt_kicker']}</span>
+      <h2>{t['opt_h2']}</h2>
+      <p>{t['opt_p']}</p>
+    </div>
+    <div class="opt-row">
+      <div class="opt-text">
+        <h3 class="opt-h">{ICON_BATTERY}{t['range_h']}</h3>
+        <div class="modes">
+{modes}
+        </div>
+        <ul class="checklist compact">
+{extras}
+        </ul>
+      </div>
+      <div class="opt-phone"><div class="phone"><img src="{p}assets/screens/{in_src}" alt="{in_alt}" width="1206" height="2622" loading="lazy"></div></div>
+    </div>
+    <div class="opt-row opt-row-rev">
+      <div class="opt-text">
+        <h3 class="opt-h">{ICON_GEAR}{t['set_h']}</h3>
+        <ul class="checklist compact">
+{settings}
+        </ul>
+        <p class="opt-note">{ICON_LOCK}{t['set_note']}</p>
+      </div>
+      <div class="opt-phone"><div class="phone"><img src="{p}assets/screens/{set_src}" alt="{set_alt}" width="1206" height="2622" loading="lazy"></div></div>
+    </div>
+  </div>
+</section>
 """
 
 
@@ -385,7 +533,7 @@ def landing(t):
 {facts}
       </ul>
     </div>
-    <div class="phone"><img src="{p}assets/screens/route.jpg" alt="{t['hero_alt']}" width="1206" height="2622"></div>
+    <div class="phone"><img src="{p}assets/screens/{t['hero_img']}" alt="{t['hero_alt']}" width="1206" height="2622"></div>
   </div>
 </section>
 
@@ -428,6 +576,7 @@ def landing(t):
   </div>
 </section>
 
+{options_section(t)}
 <section id="privacy" class="privacy-band">
   <div class="wrap privacy-grid">
     <div>
@@ -469,7 +618,8 @@ PRIVACY_EN = f"""
 <h2>3. This website</h2>
 <p>This website is hosted on GitHub Pages, a service of GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. When you visit the site, GitHub processes technical data such as your IP address to deliver the pages and to keep the service secure. Data may be processed in the USA. Details: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>. The legal basis is our legitimate interest in providing a secure website (Art. 6(1)(f) GDPR).</p>
 <p>The website itself uses no cookies, no tracking, no analytics, no JavaScript and no external fonts or third-party content.</p>
-<p>If you contact us by e-mail, we use your message only to answer it and delete it when it is no longer needed.</p>
+<p>If you contact us by e-mail, we use your message only to answer it and delete it when it is no longer needed. E-mails are received via Proton Mail (Proton AG, Switzerland), which stores them encrypted. The legal basis is Art. 6(1)(f) GDPR.</p>
+<p>An overview of every service and tool involved – and which data each one sees – is on the page <a href="legal.html">Technology &amp; legal</a>.</p>
 
 <h2>4. Your rights</h2>
 <p>Under the GDPR you have the right to access, rectification, erasure, restriction of processing, data portability and to object to processing. To exercise these rights, simply send an e-mail. You also have the right to lodge a complaint with a data protection supervisory authority.</p>
@@ -500,7 +650,8 @@ PRIVACY_DE = f"""
 <h2>3. Diese Website</h2>
 <p>Diese Website wird über GitHub Pages bereitgestellt, einen Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf verarbeitet GitHub technische Daten wie deine IP-Adresse, um die Seiten auszuliefern und den Dienst abzusichern. Dabei können Daten in den USA verarbeitet werden. Details: <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement">Datenschutzerklärung von GitHub</a>. Rechtsgrundlage ist unser berechtigtes Interesse an einer sicheren Bereitstellung der Website (Art. 6 Abs. 1 lit. f DSGVO).</p>
 <p>Die Website selbst verwendet keine Cookies, kein Tracking, keine Analyse, kein JavaScript und keine externen Schriftarten oder Inhalte Dritter.</p>
-<p>Wenn du uns per E-Mail kontaktierst, verwenden wir deine Nachricht nur zur Beantwortung und löschen sie, sobald sie nicht mehr benötigt wird.</p>
+<p>Wenn du uns per E-Mail kontaktierst, verwenden wir deine Nachricht nur zur Beantwortung und löschen sie, sobald sie nicht mehr benötigt wird. E-Mails empfangen wir über Proton Mail (Proton AG, Schweiz), dort werden sie verschlüsselt gespeichert. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p>
+<p>Eine Übersicht aller beteiligten Dienste und Werkzeuge – und welche Daten jeder sieht – findest du auf der Seite <a href="technik-recht.html">Technik &amp; Recht</a>.</p>
 
 <h2>4. Deine Rechte</h2>
 <p>Nach der DSGVO hast du das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Schreib dafür einfach eine E-Mail. Außerdem hast du das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.</p>
@@ -510,9 +661,207 @@ PRIVACY_DE = f"""
 """
 
 
-def legal(t, title, body, canonical, alt_en, alt_de):
+# ---------------------------------------------------------------------------
+# Technik & Recht: alle Werkzeuge, Dienste, Lizenzen und rechtlichen Hinweise
+# Aufbau je Eintrag: (Name, Anbieter, wofür, welche Daten)
+TECH = {
+    "en": {
+        "file": "legal.html",
+        "title": "Technology &amp; legal",
+        "lead": "Everything Route2Charge is built with and runs on – which company is behind each part, what it does and which data it sees. Plus licences, disclaimer and trademarks.",
+        "summary": "<strong>In short:</strong> Route2Charge is an independent project by {owner}. The app has no server of its own, no account and no tracking. It talks to exactly two services: Apple Maps and Open Charge Map. This website is plain HTML and CSS on GitHub Pages – no JavaScript, no cookies.",
+        "data_label": "Data",
+        "who_h": "Who is behind Route2Charge",
+        "who": "Developer and contact: {owner}, e-mail <a href=\"mailto:{email}\">{email}</a>. Route2Charge is not affiliated with Apple, Tesla, Open Charge Map or any charging network.",
+        "imprint_link": "Legal notice (Impressum) →",
+        "app_h": "The app",
+        "app_p": "Requires an iPhone with iOS 17 or later. Written in Swift.",
+        "app": [
+            ("Swift &amp; SwiftUI", "Apple", "Programming language and user interface.", "Runs on your iPhone only – no data leaves the device."),
+            ("Apple Maps (MapKit)", "Apple Inc.", "Map, place search, routes and detour calculation.", "Search terms, start, destination and the positions of suggested chargers are sent to Apple. <a href=\"https://www.apple.com/legal/privacy/\">Apple privacy policy</a>"),
+            ("Open Charge Map API", "Open Charge Map (community project)", "Charging station data: location, power, plugs, operator.", "Only small rectangular map areas around your charging window and the minimum power. Never your start, destination or route; no device ID. Your IP address is technically transmitted. <a href=\"https://openchargemap.org\">openchargemap.org</a>"),
+            ("Core Location", "Apple", "Your current location – only if you start “from here”, once per search, and to notice when you have arrived at the charger.", "Stays on your iPhone; passed to Apple Maps for routing. Never stored, never sent to us."),
+            ("UserDefaults (iOS)", "Apple", "Stores your settings such as battery size or minimum power.", "Only on your iPhone. Deleted together with the app."),
+            ("Mail app (iOS)", "Apple or your mail provider", "Feedback – only when you tap “Report a bug”.", "Whatever you write; app and iOS version are visible in the message and can be deleted before sending."),
+        ],
+        "app_none": "Not included: analytics, crash-reporting SDKs, advertising, tracking, third-party libraries or a server of our own.",
+        "web_h": "This website",
+        "web": [
+            ("GitHub Pages", "GitHub, Inc. (USA)", "Hosting of this website.", "Your IP address and technical request data are processed by GitHub to deliver the pages. <a href=\"https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement\">GitHub Privacy Statement</a>"),
+            ("HTML &amp; CSS", "Built in-house", "The pages are plain, static HTML and CSS, generated by a small Python script.", "No JavaScript, no cookies, no external fonts, no third-party content. A Content Security Policy blocks scripts and foreign content."),
+        ],
+        "web_src": "The website’s source code is public: <a href=\"https://github.com/route2charge/route2charge.github.io\">github.com/route2charge/route2charge.github.io</a>",
+        "mail_h": "Contact by e-mail",
+        "mail": [
+            ("Proton Mail", "Proton AG (Switzerland)", "Receives e-mails sent to {email}.", "Your e-mail address and message. Used only to reply and deleted when no longer needed. <a href=\"https://proton.me/legal/privacy\">Proton privacy policy</a>"),
+        ],
+        "dev_h": "Development tools",
+        "dev_p": "Used to build the app and the website. They never see any data from users.",
+        "dev": [
+            ("Xcode, Simulator &amp; Swift Testing", "Apple", "Building, testing and screenshots."),
+            ("XcodeGen", "Open source (MIT licence)", "Generates the Xcode project from a short text file."),
+            ("Git &amp; GitHub", "GitHub, Inc.", "Version control; the app’s source code is kept in a private repository."),
+            ("Python &amp; Playwright", "Open source", "Builds this website and checks how it looks on different screens."),
+            ("Claude", "Anthropic", "AI assistant used for programming, texts and design."),
+        ],
+        "lic_h": "Licences &amp; sources",
+        "lic": [
+            "Charging station data © Open Charge Map contributors and data providers, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\">CC BY 4.0</a>. The app names the data provider for each recommended charger.",
+            "Maps, routes and place search: Apple Maps. The map’s own legal notice can be opened in the app from the map (“Legal”).",
+            "Icons in the app: SF Symbols by Apple, used under Apple’s licence for apps on Apple platforms.",
+            "App icon, logo, website design and texts: © 2026 {owner}.",
+        ],
+        "disc_h": "Disclaimer",
+        "disc": [
+            "All information is provided without guarantee. Charging station data comes from a community database and its providers – a charger may be occupied, out of order, closed, or have different power, access rules or prices.",
+            "Range and arrival estimates are approximations. Temperature, speed, elevation and your driving style change your real range. Always keep a reserve – that’s what the safety buffer is for.",
+            "Please don’t operate your phone while driving. Plan your stop before you set off or let a passenger do it.",
+            "We are not responsible for the content of external websites we link to.",
+        ],
+        "tm_h": "Trademarks",
+        "tm": "Apple, iPhone, Apple Maps, App Store, Xcode, Swift and SwiftUI are trademarks of Apple Inc. Tesla and Supercharger are trademarks of Tesla, Inc. GitHub is a trademark of GitHub, Inc. Proton and Proton Mail are trademarks of Proton AG. Claude is a trademark of Anthropic, PBC. All other names belong to their respective owners. Their use here only describes compatibility or the services used.",
+        "sec_h": "Security",
+        "sec": [
+            "No account means there is nothing to sign in to and no user data with us that could leak.",
+            "All connections of the app and this website are encrypted (HTTPS).",
+            "Secret keys are not part of any public source code.",
+            "Found a security issue? Please write to <a href=\"mailto:{email}\">{email}</a> – thank you!",
+        ],
+    },
+    "de": {
+        "file": "technik-recht.html",
+        "title": "Technik &amp; Recht",
+        "lead": "Alles, womit Route2Charge gebaut ist und worauf es läuft – welche Firma dahintersteht, wofür es da ist und welche Daten es sieht. Dazu Lizenzen, Haftungsausschluss und Marken.",
+        "summary": "<strong>Kurz gesagt:</strong> Route2Charge ist ein unabhängiges Projekt von {owner}. Die App hat keinen eigenen Server, keinen Account und kein Tracking. Sie spricht mit genau zwei Diensten: Apple Karten und Open Charge Map. Diese Website ist reines HTML und CSS auf GitHub Pages – ohne JavaScript, ohne Cookies.",
+        "data_label": "Daten",
+        "who_h": "Wer steckt hinter Route2Charge",
+        "who": "Entwickler und Kontakt: {owner}, E-Mail <a href=\"mailto:{email}\">{email}</a>. Route2Charge ist weder mit Apple, Tesla oder Open Charge Map noch mit einem Ladenetz verbunden.",
+        "imprint_link": "Impressum →",
+        "app_h": "Die App",
+        "app_p": "Läuft auf dem iPhone ab iOS 17. Geschrieben in Swift.",
+        "app": [
+            ("Swift &amp; SwiftUI", "Apple", "Programmiersprache und Benutzeroberfläche.", "Läuft nur auf deinem iPhone – keine Daten verlassen das Gerät."),
+            ("Apple Karten (MapKit)", "Apple Inc.", "Karte, Ortssuche, Routen und Umweg-Berechnung.", "Suchbegriffe, Start, Ziel und die Positionen vorgeschlagener Ladesäulen gehen an Apple. <a href=\"https://www.apple.com/de/legal/privacy/\">Datenschutzrichtlinie von Apple</a>"),
+            ("Open Charge Map API", "Open Charge Map (Community-Projekt)", "Ladesäulen-Daten: Ort, Leistung, Stecker, Betreiber.", "Nur kleine rechteckige Kartenausschnitte rund um dein Ladefenster und die Mindestleistung. Nie Start, Ziel oder Route, keine Gerätekennung. Technisch wird deine IP-Adresse übertragen. <a href=\"https://openchargemap.org\">openchargemap.org</a>"),
+            ("Core Location", "Apple", "Dein aktueller Standort – nur wenn du „ab hier“ startest, einmal pro Suche, und um zu merken, dass du an der Säule angekommen bist.", "Bleibt auf dem iPhone, geht für die Route an Apple Karten. Nie gespeichert, nie an uns übertragen."),
+            ("UserDefaults (iOS)", "Apple", "Speichert deine Einstellungen wie Akkugröße oder Mindestleistung.", "Nur auf deinem iPhone. Wird mit der App gelöscht."),
+            ("Mail-App (iOS)", "Apple bzw. dein Mail-Anbieter", "Feedback – nur wenn du auf „Fehler melden“ tippst.", "Was du schreibst; App- und iOS-Version stehen sichtbar in der Mail und können vor dem Senden gelöscht werden."),
+        ],
+        "app_none": "Nicht enthalten: Analyse-Tools, Absturz-SDKs, Werbung, Tracking, Bibliotheken von Drittanbietern oder ein eigener Server.",
+        "web_h": "Diese Website",
+        "web": [
+            ("GitHub Pages", "GitHub, Inc. (USA)", "Hosting dieser Website.", "Deine IP-Adresse und technische Abrufdaten verarbeitet GitHub, um die Seiten auszuliefern. <a href=\"https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement\">Datenschutzerklärung von GitHub</a>"),
+            ("HTML &amp; CSS", "Eigenbau", "Die Seiten sind reines, statisches HTML und CSS, erzeugt von einem kleinen Python-Skript.", "Kein JavaScript, keine Cookies, keine externen Schriften, keine Inhalte Dritter. Eine Content Security Policy blockiert Skripte und fremde Inhalte."),
+        ],
+        "web_src": "Der Quellcode der Website ist öffentlich: <a href=\"https://github.com/route2charge/route2charge.github.io\">github.com/route2charge/route2charge.github.io</a>",
+        "mail_h": "Kontakt per E-Mail",
+        "mail": [
+            ("Proton Mail", "Proton AG (Schweiz)", "Empfängt E-Mails an {email}.", "Deine E-Mail-Adresse und Nachricht. Nur zur Antwort genutzt und gelöscht, sobald nicht mehr nötig. <a href=\"https://proton.me/de/legal/privacy\">Datenschutzerklärung von Proton</a>"),
+        ],
+        "dev_h": "Entwicklungswerkzeuge",
+        "dev_p": "Damit werden App und Website gebaut. Sie sehen nie Daten von Nutzern.",
+        "dev": [
+            ("Xcode, Simulator &amp; Swift Testing", "Apple", "Bauen, Testen und Screenshots."),
+            ("XcodeGen", "Open Source (MIT-Lizenz)", "Erzeugt das Xcode-Projekt aus einer kurzen Textdatei."),
+            ("Git &amp; GitHub", "GitHub, Inc.", "Versionsverwaltung; der Quellcode der App liegt in einem privaten Repository."),
+            ("Python &amp; Playwright", "Open Source", "Bauen diese Website und prüfen, wie sie auf verschiedenen Bildschirmen aussieht."),
+            ("Claude", "Anthropic", "KI-Assistent für Programmierung, Texte und Design."),
+        ],
+        "lic_h": "Lizenzen &amp; Quellen",
+        "lic": [
+            "Ladesäulen-Daten © Open Charge Map und Datenlieferanten, Lizenz <a href=\"https://creativecommons.org/licenses/by/4.0/deed.de\">CC BY 4.0</a>. Die App nennt bei jeder empfohlenen Säule den Datenlieferanten.",
+            "Karten, Routen und Ortssuche: Apple Karten. Die rechtlichen Hinweise der Karte lassen sich in der App direkt auf der Karte öffnen („Rechtliches“).",
+            "Symbole in der App: SF Symbols von Apple, genutzt im Rahmen der Apple-Lizenz für Apps auf Apple-Plattformen.",
+            "App-Icon, Logo, Website-Design und Texte: © 2026 {owner}.",
+        ],
+        "disc_h": "Haftungsausschluss",
+        "disc": [
+            "Alle Angaben ohne Gewähr. Die Ladesäulen-Daten stammen aus einer Community-Datenbank und von deren Lieferanten – eine Säule kann belegt, defekt oder geschlossen sein oder andere Leistung, Zugangsregeln oder Preise haben.",
+            "Reichweite und Ankunftswerte sind Schätzungen. Temperatur, Tempo, Höhenmeter und Fahrstil verändern die echte Reichweite. Plane immer eine Reserve ein – dafür gibt es den Sicherheitspuffer.",
+            "Bitte bediene das Handy nicht während der Fahrt. Plane den Stopp vor dem Losfahren oder lass Beifahrer tippen.",
+            "Für Inhalte externer Websites, auf die wir verlinken, sind deren Betreiber verantwortlich.",
+        ],
+        "tm_h": "Marken",
+        "tm": "Apple, iPhone, Apple Karten, App Store, Xcode, Swift und SwiftUI sind Marken der Apple Inc. Tesla und Supercharger sind Marken der Tesla, Inc. GitHub ist eine Marke der GitHub, Inc. Proton und Proton Mail sind Marken der Proton AG. Claude ist eine Marke der Anthropic, PBC. Alle anderen Namen gehören ihren jeweiligen Inhabern. Sie werden hier nur genannt, um Kompatibilität oder genutzte Dienste zu beschreiben.",
+        "sec_h": "Sicherheit",
+        "sec": [
+            "Kein Account heißt: Es gibt keine Anmeldung und bei uns keine Nutzerdaten, die abhandenkommen könnten.",
+            "Alle Verbindungen von App und Website sind verschlüsselt (HTTPS).",
+            "Geheime Schlüssel sind nicht Teil von öffentlichem Quellcode.",
+            "Sicherheitslücke gefunden? Bitte schreib an <a href=\"mailto:{email}\">{email}</a> – danke!",
+        ],
+    },
+}
+
+# Impressum: wird erst erzeugt und verlinkt, wenn ADDRESS ausgefüllt ist
+IMPRINT = {
+    "en": {"file": "imprint.html", "title": "Legal notice",
+           "body": "<p>Information pursuant to § 5 DDG (German Digital Services Act)</p><p>{owner}<br>{address}</p><h2>Contact</h2><p>E-mail: <a href=\"mailto:{email}\">{email}</a></p><h2>Responsible for content</h2><p>{owner}, address as above</p>"},
+    "de": {"file": "impressum.html", "title": "Impressum",
+           "body": "<p>Angaben gemäß § 5 DDG</p><p>{owner}<br>{address}</p><h2>Kontakt</h2><p>E-Mail: <a href=\"mailto:{email}\">{email}</a></p><h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2><p>{owner}, Anschrift wie oben</p>"},
+}
+
+
+def fill(text):
+    return text.format(owner=OWNER, email=EMAIL, address=ADDRESS.replace("\n", "<br>"))
+
+
+def tool_cards(items, data_label):
+    out = []
+    for item in items:
+        name, vendor, what = item[:3]
+        data = f'<p class="tool-data"><b>{data_label}:</b> {fill(item[3])}</p>' if len(item) > 3 else ""
+        out.append(f"""<div class="tool"><h3>{name} <span>{vendor}</span></h3><p>{fill(what)}</p>{data}</div>""")
+    return '<div class="tools">' + "\n".join(out) + "</div>"
+
+
+def tech_body(lang):
+    c = TECH[lang]
+    imprint = ""
+    if ADDRESS.strip():
+        imprint = f'<p><a class="more" href="{IMPRINT[lang]["file"]}">{c["imprint_link"]}</a></p>'
+    bullets = lambda items: "<ul>" + "".join(f"<li>{fill(x)}</li>" for x in items) + "</ul>"
+    return f"""
+<p class="lead">{c['lead']}</p>
+<div class="summary"><p>{fill(c['summary'])}</p></div>
+
+<h2>{c['who_h']}</h2>
+<p>{fill(c['who'])}</p>
+{imprint}
+<h2>{c['app_h']}</h2>
+<p>{c['app_p']}</p>
+{tool_cards(c['app'], c['data_label'])}
+<p class="note">{c['app_none']}</p>
+
+<h2>{c['web_h']}</h2>
+{tool_cards(c['web'], c['data_label'])}
+<p>{c['web_src']}</p>
+
+<h2>{c['mail_h']}</h2>
+{tool_cards(c['mail'], c['data_label'])}
+
+<h2>{c['dev_h']}</h2>
+<p>{c['dev_p']}</p>
+{tool_cards(c['dev'], c['data_label'])}
+
+<h2>{c['lic_h']}</h2>
+{bullets(c['lic'])}
+
+<h2>{c['disc_h']}</h2>
+{bullets(c['disc'])}
+
+<h2>{c['tm_h']}</h2>
+<p>{c['tm']}</p>
+
+<h2>{c['sec_h']}</h2>
+{bullets(c['sec'])}
+"""
+
+
+def legal(t, title, body, canonical, alt_en, alt_de, lang_target=None):
     html = head(t, f"{title} – Route2Charge", t["description"], canonical, alt_en, alt_de)
-    html += header(t, t["other_privacy"], show_nav=False)
+    other = (alt_de if t["lang"] == "en" else "../" + alt_en) if lang_target is None else lang_target
+    html += header(t, other, show_nav=False)
     html += f"""<main id="main" class="legal">
   <div class="wrap">
     <a href="{t['home']}">{t['back']}</a>
@@ -583,4 +932,11 @@ if __name__ == "__main__":
     write("de/datenschutz.html", legal(TEXT["de"], "Datenschutzerklärung", PRIVACY_DE, "de/datenschutz.html", "privacy.html", "de/datenschutz.html"))
     write("help.html", help_page(TEXT["en"], "help.html", "help.html", "de/hilfe.html"))
     write("de/hilfe.html", help_page(TEXT["de"], "de/hilfe.html", "help.html", "de/hilfe.html"))
+    write("legal.html", legal(TEXT["en"], TECH["en"]["title"], tech_body("en"), "legal.html", "legal.html", "de/technik-recht.html"))
+    write("de/technik-recht.html", legal(TEXT["de"], TECH["de"]["title"], tech_body("de"), "de/technik-recht.html", "legal.html", "de/technik-recht.html"))
+    if ADDRESS.strip():
+        for lang, other in (("en", "de/impressum.html"), ("de", "../imprint.html")):
+            c = IMPRINT[lang]
+            rel = c["file"] if lang == "en" else "de/" + c["file"]
+            write(rel, legal(TEXT[lang], c["title"], fill(c["body"]), rel, "imprint.html", "de/impressum.html", other))
     write("404.html", not_found())

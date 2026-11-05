@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Technik &amp; Recht – Route2Charge</title>
+<meta name="description" content="Noch 150 km? Route2Charge zeigt dir die zwei besten Schnelllader auf deiner Route – kurz bevor es knapp wird. Ohne Account, ohne Tracking, ohne Werbung.">
+<meta name="theme-color" content="#06090d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://route2charge.github.io/de/technik-recht.html">
+<link rel="alternate" hreflang="en" href="https://route2charge.github.io/legal.html">
+<link rel="alternate" hreflang="de" href="https://route2charge.github.io/de/technik-recht.html">
+<link rel="alternate" hreflang="x-default" href="https://route2charge.github.io/legal.html">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/style.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Technik &amp; Recht – Route2Charge">
+<meta property="og:description" content="Noch 150 km? Route2Charge zeigt dir die zwei besten Schnelllader auf deiner Route – kurz bevor es knapp wird. Ohne Account, ohne Tracking, ohne Werbung.">
+<meta property="og:url" content="https://route2charge.github.io/de/technik-recht.html">
+<meta property="og:image" content="https://route2charge.github.io/assets/og-de.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Route2Charge – Start">
+      <img src="../assets/icon.svg" alt="" width="32" height="32">
+      <span>Route<b>2</b>Charge</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a class="lang" href="../legal.html" hreflang="en" lang="en" title="English">EN</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="legal">
+  <div class="wrap">
+    <a href="index.html">← Zurück zu Route2Charge</a>
+    <h1>Technik &amp; Recht</h1>
+
+<p class="lead">Alles, womit Route2Charge gebaut ist und worauf es läuft – welche Firma dahintersteht, wofür es da ist und welche Daten es sieht. Dazu Lizenzen, Haftungsausschluss und Marken.</p>
+<div class="summary"><p><strong>Kurz gesagt:</strong> Route2Charge ist ein unabhängiges Projekt von Clemens Schweder. Die App hat keinen eigenen Server, keinen Account und kein Tracking. Sie spricht mit genau zwei Diensten: Apple Karten und Open Charge Map. Diese Website ist reines HTML und CSS auf GitHub Pages – ohne JavaScript, ohne Cookies.</p></div>
+
+<h2>Wer steckt hinter Route2Charge</h2>
+<p>Entwickler und Kontakt: Clemens Schweder, E-Mail <a href="mailto:route2charge@proton.me">route2charge@proton.me</a>. Route2Charge ist weder mit Apple, Tesla oder Open Charge Map noch mit einem Ladenetz verbunden.</p>
+
+<h2>Die App</h2>
+<p>Läuft auf dem iPhone ab iOS 17. Geschrieben in Swift.</p>
+<div class="tools"><div class="tool"><h3>Swift &amp; SwiftUI <span>Apple</span></h3><p>Programmiersprache und Benutzeroberfläche.</p><p class="tool-data"><b>Daten:</b> Läuft nur auf deinem iPhone – keine Daten verlassen das Gerät.</p></div>
+<div class="tool"><h3>Apple Karten (MapKit) <span>Apple Inc.</span></h3><p>Karte, Ortssuche, Routen und Umweg-Berechnung.</p><p class="tool-data"><b>Daten:</b> Suchbegriffe, Start, Ziel und die Positionen vorgeschlagener Ladesäulen gehen an Apple. <a href="https://www.apple.com/de/legal/privacy/">Datenschutzrichtlinie von Apple</a></p></div>
+<div class="tool"><h3>Open Charge Map API <span>Open Charge Map (Community-Projekt)</span></h3><p>Ladesäulen-Daten: Ort, Leistung, Stecker, Betreiber.</p><p class="tool-data"><b>Daten:</b> Nur kleine rechteckige Kartenausschnitte rund um dein Ladefenster und die Mindestleistung. Nie Start, Ziel oder Route, keine Gerätekennung. Technisch wird deine IP-Adresse übertragen. <a href="https://openchargemap.org">openchargemap.org</a></p></div>
+<div class="tool"><h3>Core Location <span>Apple</span></h3><p>Dein aktueller Standort – nur wenn du „ab hier“ startest, einmal pro Suche, und um zu merken, dass du an der Säule angekommen bist.</p><p class="tool-data"><b>Daten:</b> Bleibt auf dem iPhone, geht für die Route an Apple Karten. Nie gespeichert, nie an uns übertragen.</p></div>
+<div class="tool"><h3>UserDefaults (iOS) <span>Apple</span></h3><p>Speichert deine Einstellungen wie Akkugröße oder Mindestleistung.</p><p class="tool-data"><b>Daten:</b> Nur auf deinem iPhone. Wird mit der App gelöscht.</p></div>
+<div class="tool"><h3>Mail-App (iOS) <span>Apple bzw. dein Mail-Anbieter</span></h3><p>Feedback – nur wenn du auf „Fehler melden“ tippst.</p><p class="tool-data"><b>Daten:</b> Was du schreibst; App- und iOS-Version stehen sichtbar in der Mail und können vor dem Senden gelöscht werden.</p></div></div>
+<p class="note">Nicht enthalten: Analyse-Tools, Absturz-SDKs, Werbung, Tracking, Bibliotheken von Drittanbietern oder ein eigener Server.</p>
+
+<h2>Diese Website</h2>
+<div class="tools"><div class="tool"><h3>GitHub Pages <span>GitHub, Inc. (USA)</span></h3><p>Hosting dieser Website.</p><p class="tool-data"><b>Daten:</b> Deine IP-Adresse und technische Abrufdaten verarbeitet GitHub, um die Seiten auszuliefern. <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement">Datenschutzerklärung von GitHub</a></p></div>
+<div class="tool"><h3>HTML &amp; CSS <span>Eigenbau</span></h3><p>Die Seiten sind reines, statisches HTML und CSS, erzeugt von einem kleinen Python-Skript.</p><p class="tool-data"><b>Daten:</b> Kein JavaScript, keine Cookies, keine externen Schriften, keine Inhalte Dritter. Eine Content Security Policy blockiert Skripte und fremde Inhalte.</p></div></div>
+<p>Der Quellcode der Website ist öffentlich: <a href="https://github.com/route2charge/route2charge.github.io">github.com/route2charge/route2charge.github.io</a></p>
+
+<h2>Kontakt per E-Mail</h2>
+<div class="tools"><div class="tool"><h3>Proton Mail <span>Proton AG (Schweiz)</span></h3><p>Empfängt E-Mails an route2charge@proton.me.</p><p class="tool-data"><b>Daten:</b> Deine E-Mail-Adresse und Nachricht. Nur zur Antwort genutzt und gelöscht, sobald nicht mehr nötig. <a href="https://proton.me/de/legal/privacy">Datenschutzerklärung von Proton</a></p></div></div>
+
+<h2>Entwicklungswerkzeuge</h2>
+<p>Damit werden App und Website gebaut. Sie sehen nie Daten von Nutzern.</p>
+<div class="tools"><div class="tool"><h3>Xcode, Simulator &amp; Swift Testing <span>Apple</span></h3><p>Bauen, Testen und Screenshots.</p></div>
+<div class="tool"><h3>XcodeGen <span>Open Source (MIT-Lizenz)</span></h3><p>Erzeugt das Xcode-Projekt aus einer kurzen Textdatei.</p></div>
+<div class="tool"><h3>Git &amp; GitHub <span>GitHub, Inc.</span></h3><p>Versionsverwaltung; der Quellcode der App liegt in einem privaten Repository.</p></div>
+<div class="tool"><h3>Python &amp; Playwright <span>Open Source</span></h3><p>Bauen diese Website und prüfen, wie sie auf verschiedenen Bildschirmen aussieht.</p></div>
+<div class="tool"><h3>Claude <span>Anthropic</span></h3><p>KI-Assistent für Programmierung, Texte und Design.</p></div></div>
+
+<h2>Lizenzen &amp; Quellen</h2>
+<ul><li>Ladesäulen-Daten © Open Charge Map und Datenlieferanten, Lizenz <a href="https://creativecommons.org/licenses/by/4.0/deed.de">CC BY 4.0</a>. Die App nennt bei jeder empfohlenen Säule den Datenlieferanten.</li><li>Karten, Routen und Ortssuche: Apple Karten. Die rechtlichen Hinweise der Karte lassen sich in der App direkt auf der Karte öffnen („Rechtliches“).</li><li>Symbole in der App: SF Symbols von Apple, genutzt im Rahmen der Apple-Lizenz für Apps auf Apple-Plattformen.</li><li>App-Icon, Logo, Website-Design und Texte: © 2026 Clemens Schweder.</li></ul>
+
+<h2>Haftungsausschluss</h2>
+<ul><li>Alle Angaben ohne Gewähr. Die Ladesäulen-Daten stammen aus einer Community-Datenbank und von deren Lieferanten – eine Säule kann belegt, defekt oder geschlossen sein oder andere Leistung, Zugangsregeln oder Preise haben.</li><li>Reichweite und Ankunftswerte sind Schätzungen. Temperatur, Tempo, Höhenmeter und Fahrstil verändern die echte Reichweite. Plane immer eine Reserve ein – dafür gibt es den Sicherheitspuffer.</li><li>Bitte bediene das Handy nicht während der Fahrt. Plane den Stopp vor dem Losfahren oder lass Beifahrer tippen.</li><li>Für Inhalte externer Websites, auf die wir verlinken, sind deren Betreiber verantwortlich.</li></ul>
+
+<h2>Marken</h2>
+<p>Apple, iPhone, Apple Karten, App Store, Xcode, Swift und SwiftUI sind Marken der Apple Inc. Tesla und Supercharger sind Marken der Tesla, Inc. GitHub ist eine Marke der GitHub, Inc. Proton und Proton Mail sind Marken der Proton AG. Claude ist eine Marke der Anthropic, PBC. Alle anderen Namen gehören ihren jeweiligen Inhabern. Sie werden hier nur genannt, um Kompatibilität oder genutzte Dienste zu beschreiben.</p>
+
+<h2>Sicherheit</h2>
+<ul><li>Kein Account heißt: Es gibt keine Anmeldung und bei uns keine Nutzerdaten, die abhandenkommen könnten.</li><li>Alle Verbindungen von App und Website sind verschlüsselt (HTTPS).</li><li>Geheime Schlüssel sind nicht Teil von öffentlichem Quellcode.</li><li>Sicherheitslücke gefunden? Bitte schreib an <a href="mailto:route2charge@proton.me">route2charge@proton.me</a> – danke!</li></ul>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <span>© 2026 Clemens Schweder · Route2Charge ist ein unabhängiges Projekt.</span>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="hilfe.html">Hilfe</a>
+        <a href="datenschutz.html">Datenschutzerklärung</a>
+        <a href="technik-recht.html">Technik &amp; Recht</a>
+                <a href="mailto:route2charge@proton.me">Kontakt</a>
+        <a href="../index.html" hreflang="en">English</a>
+      </nav>
+    </div>
+    <p class="credits">Ladesäulen-Daten © Open Charge Map und Datenlieferanten, Lizenz CC BY 4.0. Karten und Routen: Apple Karten. Apple, iPhone und App Store sind Marken der Apple Inc. Alle Angaben ohne Gewähr – Verfügbarkeit, Leistung und Preise der Ladesäulen können abweichen.</p>
+  </div>
+</footer>
+</body>
+</html>

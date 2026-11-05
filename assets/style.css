@@ -224,3 +224,51 @@ figcaption { text-align: center; color: var(--muted); margin-top: 18px; font-siz
 .faq summary::after { content: "+"; color: var(--accent); font-weight: 800; font-size: 20px; line-height: 1; }
 .faq[open] summary::after { content: "–"; }
 .faq p { margin: 0 0 16px; color: #c7d3dd; }
+
+/* Optionen: Reichweite & Einstellungen */
+.options-section { padding-top: 40px; }
+.opt-row { display: grid; grid-template-columns: 1fr 330px; gap: 64px; align-items: center; }
+.opt-row + .opt-row { margin-top: 88px; }
+.opt-row-rev { grid-template-columns: 330px 1fr; }
+.opt-row-rev .opt-text { order: 2; }
+.opt-row-rev .opt-phone { order: 1; }
+@media (max-width: 960px) {
+  .opt-row, .opt-row-rev { grid-template-columns: 1fr; gap: 40px; }
+  .opt-row-rev .opt-text { order: 1; }
+  .opt-row-rev .opt-phone { order: 2; }
+  .opt-phone .phone { width: min(100%, 300px); }
+}
+.opt-h { display: flex; align-items: center; gap: 12px; font-size: clamp(22px, 2.4vw, 27px); letter-spacing: -.02em; line-height: 1.2; margin: 0 0 22px; }
+.opt-h svg { width: 28px; height: 28px; color: var(--accent); flex: none; }
+.modes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 18px; }
+@media (max-width: 700px) { .modes { grid-template-columns: 1fr; } }
+.mode { background: linear-gradient(180deg, var(--card-2), var(--card)); border: 1px solid var(--line); border-radius: 18px; padding: 18px; display: flex; flex-direction: column; }
+.mode-tag { align-self: flex-start; font-size: 12.5px; font-weight: 700; letter-spacing: .04em; color: var(--text); background: rgba(255, 255, 255, .06); border: 1px solid var(--line); padding: 3px 10px; border-radius: 999px; }
+.mode-val { font-size: 34px; font-weight: 850; letter-spacing: -.03em; line-height: 1.1; margin: 14px 0 12px; background: linear-gradient(92deg, var(--accent) 10%, var(--accent-2) 90%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.mode p { margin: 14px 0 0; color: var(--muted); font-size: 15px; line-height: 1.5; }
+.meter { position: relative; display: block; height: 8px; border-radius: 99px; background: #1f2b37; }
+.meter i { position: absolute; top: 0; bottom: 0; left: 0; border-radius: 99px; background: linear-gradient(90deg, var(--accent-2), var(--accent)); }
+.mode-km .meter i { width: 25%; }
+.mode-pct .meter { height: 16px; border-radius: 5px; background: transparent; border: 2px solid #3a4856; margin-right: 6px; }
+.mode-pct .meter::after { content: ""; position: absolute; right: -7px; top: 3px; width: 4px; height: 6px; border-radius: 0 2px 2px 0; background: #3a4856; }
+.mode-pct .meter i { top: 2px; bottom: 2px; left: 2px; width: calc(35% - 4px); border-radius: 2px; }
+.mode-at .meter i { left: 33%; width: 22%; opacity: .55; }
+.mode-at .meter::after { content: ""; position: absolute; left: 44%; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--card), 0 0 14px rgba(60, 240, 138, .7); }
+.checklist.compact { gap: 10px; }
+.checklist.compact li { padding: 14px 16px; }
+.opt-note { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 15px; margin: 18px 0 0; }
+.opt-note svg { width: 18px; height: 18px; color: var(--accent); flex: none; }
+@media (max-width: 960px) { .nav .hide-md { display: none; } }
+
+/* Technik & Recht */
+.legal .lead { color: var(--muted); }
+.tools { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
+@media (max-width: 640px) { .tools { grid-template-columns: 1fr; } }
+.tool { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; }
+.legal .tool h3 { margin: 0 0 6px; font-size: 17px; }
+.tool h3 span { display: block; color: var(--faint); font-size: 13.5px; font-weight: 600; margin-top: 2px; }
+.legal .tool p { margin: 0; font-size: 15px; }
+.legal .tool .tool-data { margin-top: 8px; color: var(--muted); }
+.tool-data b { color: var(--accent); font-weight: 650; }
+.legal .note { border-left: 3px solid var(--accent); padding-left: 14px; color: var(--muted); }
+.legal a { overflow-wrap: anywhere; }
